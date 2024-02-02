@@ -1,5 +1,5 @@
 ---
-title: Getting Started
+title: С чего начать
 permalink: /GettingStarted/
 ---
 
@@ -11,42 +11,42 @@ permalink: /GettingStarted/
 [![agda][agda-badge-version-svg]][agda-badge-version-url]
 [![standard-library][agda-stdlib-version-svg]][agda-stdlib-version-url]
 
-## Getting Started for Readers
+## С чего начать Читателям
 
-You can read PLFA [online][plfa] without installing anything. However, if you wish to interact with the code or complete the exercises, you need several things:
+Вы можете читать PLFA [online[plfa] без установки чего-либо. Однако, если вы хотите взаимодействовать с кодом или выполнять упражнения, то вам понадобится:
 
-- On macOS: [The XCode Command Line Tools](#on-macos-install-the-xcode-command-line-tools)
+- На macOS: [The XCode Command Line Tools](#on-macos-install-the-xcode-command-line-tools)
 - [Git](#install-git)
 - [GHC and Cabal](#install-ghc-and-cabal)
 - [Agda](#install-agda)
 - [Agda standard library](#install-plfa-and-the-agda-standard-library)
 - [PLFA](#install-plfa-and-the-agda-standard-library)
 
-PLFA is tested against specific versions of Agda and the standard library, which are shown in the badges above. Agda and the standard library change rapidly, and these changes often break PLFA, so using older or newer versions usually causes problems.
+PLFA тестируется на конкретных версиях Agda и стандартной библиотеки, которые отображаются в бейджах выше. Agda и стандартная библиотека меняются быстро, и эти изменения часто нарушают работу PLFA, поэтому использование более старых или более новых версий обычно вызывает проблемы.
 
-There are several versions of Agda and its standard library online. If you are using a package manager, like Homebrew or Debian apt, the version of Agda available there may be out of date. Furthermore, Agda is under active development, so if you install the development version from the GitHub, you might find the developers have introduced changes which break the code here. Therefore, it’s important to have the specific versions of Agda and the standard library shown above.
+В сети существует несколько версий Agda и её стандартной библиотеки. Если вы используете менеджер пакетов, такой как Homebrew или Debian apt, доступная там версия Agda может быть устаревшей. Более того, Agda активно разрабатывается, поэтому, если вы установите версию "в разработке" с GitHub, вы можете обнаружить, что разработчики внесли изменения, которые нарушают работу кода здесь. Поэтому важно иметь конкретные версии Agda и стандартной библиотеки, показанные выше.
 
-### On macOS: Install the XCode Command Line Tools
+### На macOS: Установка XCode Command Line Tools
 
-On macOS, you’ll need to install [The XCode Command Line Tools][xcode]. For most versions of macOS, you can install these by running the following command:
+На macOS, вам нужно установить [The XCode Command Line Tools][xcode]. Для большинства версий macOS, вы можете установить их запустив следующие команды:
 
 ```bash
 xcode-select --install
 ```
 
-### Install Git
+### Установка Git
 
-You can check whether you have Git by running the following command:
+Вы можете проверить, установлен ли у вас Git, выполнив следующую команду:
 
 ```bash
 git --version
 ```
 
-If you do not have Git, see [the Git downloads page][git].
+Если у вас не установлен Git, смотрите [страница загрузки Git][git].
 
-### Install GHC and Cabal
+### Установка GHC и Cabal
 
-Agda is written in Haskell, so to install it we’ll need the _Glorious Haskell Compiler_ and its package manager _Cabal_. PLFA should work with any version of GHC >=8.10, but is tested with versions 8.10 – 9.8. We recommend installing GHC and Cabal using [ghcup][ghcup].  For instance, once `ghcup` is installed, by typing
+Agda написана на Haskell, поэтому для её установки нам понадобится _Великолепный компилятор Haskell(Glorious Haskell Compiler)_ и его менеджер пакетов _Cabal_. PLFA должна работать с любой версией GHC >=8.10, но тестирование проводится с версиями 8.10 – 9.8. Мы рекомендуем устанавливать GHC и Cabal, используя [ghcup][ghcup]. Например, после установки ghcup, введя
 
 ```bash
 ghcup install ghc 9.4.8
@@ -55,80 +55,82 @@ ghcup install cabal recommended
 ghcup set ghc 9.4.8
 ghcup set cabal recommended
 ```
-or using `ghcup tui` and choosing to `set` the appropriate tools.
+или используя `ghcup tui` и выбрав  `set` соответствующие утилиты.
 
-### Install Agda
+### Установка Agda
 
-The easiest way to install Agda is using Cabal. PLFA uses Agda version 2.6.3. Run the following command:
+Самый простой способ установить Agda - использовать Cabal. PLFA использует версию Agda 2.6.3. Выполните следующую команду:
 
 ```bash
 cabal update
 cabal install Agda-2.6.3
 ```
 
-This step will take a long time and a lot of memory to complete.
+Этот шаг займет много времени и потребует много памяти.
 
-If you have problems or for alternatives see the [Agda installation instructions][agda-readthedocs-installation].
+Если у вас возникнут проблемы или вам нужны альтернативы, смотрите [инструкции по установке Agda][agda-readthedocs-installation].
 
-If you'd like, you can [test to see if you've installed Agda correctly][agda-readthedocs-hello-world].
+Если хотите, вы можете [проверить, правильно ли установлена Agda][agda-readthedocs-hello-world].
 
-### Install PLFA and the Agda standard library
+### Установка PLFA и стандартной библиотеки Agda
 
-We recommend installing PLFA from Github into your home directory, by running the following command:
+Мы рекоммендуем устанавливать PLFA с Github в вашу домашнюю директорию, запустив следующую команду:
 
 ```bash
-git clone --depth 1 --recurse-submodules --shallow-submodules https://github.com/plfa/plfa.github.io plfa
+git clone --depth 1 --recurse-submodules --shallow-submodules https://github.com/macs-club/plfa-ru plfa
 ```
 
-PLFA ships with the required version of the Agda standard library, so if you cloned with the `--recurse-submodules` flag, you’ve already got it, in the `standard-library` directory!
+PLFA поставляется с необходимой версией стандартной библиотеки Agda, так что, если вы клонировали с флагом `--recurse-submodules`, вы уже получили её в директории `standard-library`!
 
-Finally, we need to let Agda know where to find the Agda standard library and PLFA. Two configuration files are required, one which lists paths to the libraries and one which specifies which libraries to load by default.
+Наконец, нам нужно сообщить Agda, где искать стандартную библиотеку Agda и PLFA. Требуются два файла конфигурации: один, который перечисляет пути к библиотекам, и один, который указывает, какие библиотеки загружать по умолчанию.
 
-On macOS and Unix, if PLFA is installed in your home directory and you have no existing library configuration files you wish to preserve, run the following commands:
+На macOS и Unix, если PLFA установлена в домашнем каталоге и у вас нет существующих файлов конфигурации библиотек, которые вы хотели бы сохранить, выполните следующие команды:
 
 ```bash
 mkdir -p ~/.agda
 cp ~/plfa/data/dotagda/* ~/.agda
 ```
 
-This provides access to both the Agda standard library and to PLFA as an Agda library.
+Это обеспечивает доступ как к стандартной библиотеке Agda, так и к PLFA как к библиотеке Agda.
 
-Otherwise, you will need to edit the appropriate files. Both configuration files are located in the directory `AGDA_DIR`. On UNIX and macOS, `AGDA_DIR` defaults to `~/.agda`. On Windows, `AGDA_DIR` usually defaults to `%AppData%\agda`, where `%AppData%` usually defaults to `C:\Users\USERNAME\AppData\Roaming`.
+В противном случае вам потребуется отредактировать соответствующие файлы. Оба файла конфигурации находятся в каталоге `AGDA_DIR`. На UNIX и macOS `AGDA_DIR` по умолчанию устанавливается в `~/.agda`. На Windows `AGDA_DIR` обычно устанавливается в `%AppData%\agda`, где `%AppData%` обычно соответствует `C:\Users\USERNAME\AppData\Roaming`.
 
-- If the `AGDA_DIR` directory does not already exist, create it.
-- In `AGDA_DIR`, create a plain-text file called `libraries` containing `AGDA_STDLIB/standard-library.agda-lib`, where `AGDA_STDLIB` is the path to where the Agda standard library is located (e.g., `~/plfa/standard-library/`). This lets Agda know that an Agda library called `standard-library` is available.
-- In `AGDA_DIR`, create a plain-text file called `defaults` containing _just_ the line `standard-library`.
-- If you want to import modules from the book, you will also need to provide access to PLFA as an Agda library. To do so, let `PLFA` be the path to the root directory for PLFA.
-  Add `PLFA/src/plfa.agda-lib` to `AGDA_DIR/libraries` and add `plfa` to `AGDA_DIR/defaults`, each on a line of their own.
+- Если каталог `AGDA_DIR` еще не существует, создайте его.
+- В `AGDA_DIR` создайте простой текстовый файл с именем `libraries`, содержащий `AGDA_STDLIB/standard-library.agda-lib`, где `AGDA_STDLIB` - это путь к местоположению стандартной библиотеки Agda (например, `~/plfa/standard-library/`). Это сообщает Agda о том, что библиотека Agda под названием `standard-library` доступна.
+- В `AGDA_DIR` создайте простой текстовый файл с именем `defaults`, содержащий _только_ строку `standard-library`.
+- Если вы хотите импортировать модули из книги, вам также потребуется предоставить доступ к PLFA как к библиотеке Agda. Для этого пусть `PLFA` будет путем к корневому каталогу для PLFA.
+  Добавьте `PLFA/src/plfa.agda-lib` в `AGDA_DIR/libraries` и добавьте `plfa` в `AGDA_DIR/defaults`, каждый в своей собственной строке.
 
-More information about placing the standard libraries is available from [the Library Management page][agda-readthedocs-package-system] of the Agda documentation.
+Больше информации о размещении стандартных библиотек доступно на [странице управления библиотеками][agda-readthedocs-package-system] в документации Agda.
 
-## Setting up an editor for Agda
+## Настройка редактора для Agda
 
 ### Emacs
 
-The recommended editor for Agda is Emacs. To install Emacs:
+Рекомендованный редактор для Agda это Emacs.(_примечание переводчика: а вот мы предпочитаем VS Code, о его установке можно прочитать дальше_)
 
-- _On UNIX_, the version of Emacs in your repository is probably fine as long as it is fairly recent. There are also links to the most recent release on the [GNU Emacs downloads page][emacs].
+Установка Emacs:
 
-- _On MacOS_, [Aquamacs][aquamacs] is probably the preferred version of Emacs, but GNU Emacs can also be installed via Homebrew or MacPorts. See the [GNU Emacs downloads page][emacs] for instructions.
+- _На UNIX_, версия Emacs в вашем репозитории, вероятно, подойдет, если она достаточно современная. Также есть ссылки на самую последнюю версию на [странице загрузки GNU Emacs][emacs].
 
-- _On Windows_. See the [GNU Emacs downloads page][emacs] for instructions.
+- _На MacOS_, [Aquamacs][aquamacs] вероятно, предпочтительная версия Emacs, но GNU Emacs также можно установить через Homebrew или MacPorts. Смотрите [страницу загрузки GNU Emacs][emacs] для инструкций.
 
-Make sure that you are able to open, edit, and save text files with your installation. The [tour of Emacs][emacs-tour] page on the GNU Emacs site describes how to access the tutorial within your Emacs installation.
+- _На Windows_. Смотрите [страница загрузки GNU Emacs][emacs] для инструкций.
 
-Agda ships with the editor support for Emacs built-in, so if you’ve installed Agda, all you have to do to configure Emacs is run:
+Убедитесь, что вы можете открывать, редактировать и сохранять текстовые файлы с вашей установкой. Страница [обзор Emacs][emacs-tour] на сайте GNU Emacs описывает, как получить доступ к учебнику в вашей установке Emacs.
+
+Agda поставляется со встроенной поддержкой редактора для Emacs, так что если вы установили Agda, все, что вам нужно сделать для настройки Emacs, это выполнить:
 
 ```bash
 agda-mode setup
 agda-mode compile
 ```
 
-If you are already an Emacs user and have customized your setup, you may want to note the configuration which the `setup` appends to your `.emacs` file, and integrate it with your own preferred setup.
+Если вы уже используете Emacs и настроили его под себя, вам, возможно, стоит обратить внимание на конфигурацию, которую программа установки добавляет в ваш файл .emacs, и интегрировать ее с вашими предпочтительными настройками.
 
-#### Auto-loading `agda-mode` in Emacs
+#### Автозагрузка `agda-mode` в Emacs
 
-Since version 2.6.0, Agda has had support for literate editing with Markdown, using the `.lagda.md` extension. One issue is that Emacs will default to Markdown editing mode for files with a `.md` suffix. In order to have `agda-mode` automatically loaded whenever you open a file ending with `.agda` or `.lagda.md`, add the following line to your Emacs configuration file:
+С версии 2.6.0 Agda поддерживает литературное редактирование с использованием Markdown, используя расширение `.lagda.md`. Одна из проблем заключается в том, что Emacs по умолчанию будет переходить в режим редактирования Markdown для файлов с суффиксом `.md`. Чтобы `agda-mode` автоматически загружался каждый раз, когда вы открываете файл, оканчивающийся на `.agda` или `.lagda.md`, добавьте следующую строку в файл конфигурации Emacs:
 
 ```elisp
 ;; auto-load agda-mode for .agda and .lagda.md
@@ -139,13 +141,13 @@ Since version 2.6.0, Agda has had support for literate editing with Markdown, us
      auto-mode-alist))
 ```
 
-If you already have settings which change your `auto-mode-alist` in your configuration, put these _after_ the ones you already have or combine them if you are comfortable with Emacs Lisp. The configuration file for Emacs is normally located in `HOME/.emacs` or `HOME/.emacs.d/init.el`, but Aquamacs users might need to move their startup settings to the “Preferences.el” file in `HOME/Library/Preferences/Aquamacs Emacs/Preferences`. For Windows, see [the GNU Emacs documentation][emacs-home] for a description of where the Emacs configuration is located.
+Если у вас уже есть настройки, которые изменяют ваш `auto-mode-alist` в вашей конфигурации, поместите их _после_ тех, что у вас уже есть, или объедините их, если вы хорошо знакомы с Emacs Lisp. Файл конфигурации для Emacs обычно находится в `HOME/.emacs` или `HOME/.emacs.d/init.el`, но пользователям Aquamacs может потребоваться переместить их настройки запуска в файл "Preferences.el" в `HOME/Library/Preferences/Aquamacs Emacs/Preferences`. Для Windows см. [документацию GNU Emacs][emacs-home] для описания расположения конфигурации Emacs.
 
-#### Optional: using the mononoki font with Emacs
+#### Опционально: использование шрифта mononoki с Emacs
 
-Agda uses Unicode characters for many key symbols, and it is important that the font which you use to view and edit Agda programs shows these symbols correctly. The most important part is that the font you use has good Unicode support, so while we recommend [mononoki][font-mononoki], fonts such as [Source Code Pro][font-sourcecodepro], [DejaVu Sans Mono][font-dejavusansmono], and [FreeMono][font-freemono] are all good alternatives.
+Agda использует Unicode для многих ключевых символов, и важно, чтобы шрифт, который вы используете для просмотра и редактирования программ на Agda, корректно отображал эти символы. Самое важное, чтобы шрифт, который вы используете, имел хорошую поддержку Unicode, поэтому, хотя мы рекомендуем [mononoki][font-mononoki], шрифты, такие как [Source Code Pro][font-sourcecodepro], [DejaVu Sans Mono][font-dejavusansmono] и [FreeMono][font-freemono], являются хорошими альтернативами.
 
-You can download and install mononoki directly from [the website][font-mononoki]. For most systems, installing a font is merely a matter of clicking the downloaded `.otf` or `.ttf` file. If your package manager offers a package for mononoki, that might be easier. For instance, Homebrew on macOS offers the `font-mononoki` package, and APT on Debian offers the `fonts-mononoki` package. To configure Emacs to use mononoki as its default font, add the following to the end of your Emacs configuration file:
+Вы можете скачать и установить mononoki напрямую с [веб-сайта][font-mononoki]. Для большинства систем установка шрифта сводится просто к клику на скачанный файл `.otf` или `.ttf`. Если ваш менеджер пакетов предлагает пакет для mononoki, это может быть проще. Например, Homebrew на macOS предлагает пакет `font-mononoki`, а APT на Debian предлагает пакет `fonts-mononoki`. Чтобы настроить Emacs на использование mononoki в качестве шрифта по умолчанию, добавьте следующее в конец вашего конфигурационного файла Emacs:
 
 ```elisp
 ;; default to mononoki
@@ -156,101 +158,101 @@ You can download and install mononoki directly from [the website][font-mononoki]
                     :width  'normal)
 ```
 
-#### Check if `agda-mode` was installed correctly
+#### Проверка корректности установки `agda-mode`
 
-Open the first chapter of the book (`plfa/src/plfa/part1/Naturals.lagda.md`) in Emacs.  You can load and type-check the file by typing [`C-c C-l`][agda-readthedocs-emacs-notation].
+Откройте первую главу книги (`plfa/src/plfa/part1/Naturals.lagda.md`) в Emacs. Вы можете загрузить и выполнить проверку типов в файле введя [`C-c C-l`][agda-readthedocs-emacs-notation].
 
-#### Using `agda-mode` in Emacs
+#### Использование `agda-mode` в Emacs
 
-To load and type-check the file, use [`C-c C-l`][agda-readthedocs-emacs-notation].
+Для загрузки и проверки типов в файле используйте [`C-c C-l`][agda-readthedocs-emacs-notation].
 
-Agda is edited interactively, using [“holes”][agda-readthedocs-holes], which are bits of the program that are not yet filled in. If you use a question mark as an expression, and load the buffer using `C-c C-l`, Agda replaces the question mark with a hole. There are several things you can do while the cursor is in a hole:
+Agda редактируется интерактивно с использованием ["дырок"][agda-readthedocs-holes], которые представляют собой части программы, которые еще не заполнены. Если вы используете вопросительный знак в качестве выражения и загружаете буфер с помощью `C-c C-l`, Agda заменяет вопросительный знак на дырку. Есть несколько вещей, которые вы можете делать, пока курсор находится в дырке:
 
-- `C-c C-c`: **c**ase split (asks for variable name)
-- `C-c C-space`: fill in hole
-- `C-c C-r`: **r**efine with constructor
-- `C-c C-a`: **a**utomatically fill in hole
-- `C-c C-,`: goal type and context
-- `C-c C-.`: goal type, context, and inferred type
+- `C-c C-c`: **c**ase split -- разделение на случаи (запрашивает имя переменной)
+- `C-c C-space`: заполнить дырку
+- `C-c C-r`: **r**efine with constructor -- уточнить с помощью конструктора
+- `C-c C-a`: **a**utomatically fill in hole -- автоматически заполнить дырку
+- `C-c C-,`: тип дырки и контекст
+- `C-c C-.`: тип дырки, контекст и выведенный тип
 
-See [the emacs-mode docs][agda-readthedocs-emacs-mode] for more details.
+Смотрите [документацию emacs-mode][agda-readthedocs-emacs-mode] для подробностей.
 
-If you want to see messages beside rather than below your Agda code, you can do the following:
+Если вы хотите видеть сообщения рядом с вашим кодом Agda, а не под ним, вы можете сделать следующее:
 
-- Open your Agda file, and load it using `C-c C-l`;
-- type `C-x 1` to get only your Agda file showing;
-- type `C-x 3` to split the window horizontally;
-- move your cursor to the right-hand half of your frame;
-- type `C-x b` and switch to the buffer called “Agda information”.
+- Откройте ваш файл Agda и загрузите его, используя `C-c C-l`;
+- нажмите `C-x 1`, чтобы отобразить только ваш файл Agda;
+- нажмите `C-x 3`, чтобы разделить окно по горизонтали;
+- переместите курсор в правую половину вашего фрейма;
+- нажмите `C-x b` и переключитесь на буфер под названием “Agda information”.
 
-Now, error messages from Agda will appear next to your file, rather than squished beneath it.
+Теперь сообщения об ошибках от Agda будут появляться рядом с вашим файлом, а не под ним.
 
-#### Entering Unicode characters in Emacs with `agda-mode`
+#### Ввод Unicode символов в Emacs с `agda-mode`
 
-When you write Agda code, you will need to insert characters which are not found on standard keyboards. Emacs “agda-mode” makes it easier to do this by defining character translations: when you enter certain sequences of ordinary characters (the kind you find on any keyboard), Emacs will replace them in your Agda file with the corresponding special character.
+Когда вы пишете код на Agda, вам потребуется вставлять символы, которых нет на стандартных клавиатурах. Режим "agda-mode" в Emacs облегчает эту задачу, определяя переводы символов: когда вы вводите определенные последовательности обычных символов (те, которые можно найти на любой клавиатуре), Emacs заменит их в вашем файле Agda соответствующим специальным символом.
 
-For example, we can add a comment line to one of the `.agda` test files.
-Let's say we want to add a comment line that reads:
-
-```agda
-{- I am excited to type ∀ and → and ≤ and ≡ !! -}
-```
-
-The first few characters are ordinary, so we would just type them as usual…
+Например, мы можем добавить строку комментария в один из тестовых файлов `.agda`.
+Допустим, мы хотим добавить строку комментария, которая гласит:
 
 ```agda
-{- I am excited to type
+{- Я в восторге от возможности печатать ∀ и → и ≤ и ≡ !! -}
 ```
 
-But after that last space, we do not find ∀ on the keyboard. The code for this character is the four characters `\all`, so we type those four characters, and when we finish, Emacs will replace them with what we want…
+
+Первые несколько символов обычные, так что мы бы набрали их как обычно…
+```agda
+{- Я в восторге от возможности печатать
+```
+
+Но после последнего пробела мы не найдем символ ∀ на клавиатуре. Код этого символа состоит из четырех символов `\all`, так что мы вводим эти четыре символа, и когда закончим, Emacs заменит их на то, что нам нужно...
 
 ```agda
-{- I am excited to type ∀
+{- Я в восторге от возможности печатать ∀
 ```
 
-We can continue with the codes for the other characters. Sometimes the characters will change as we type them, because a prefix of our character's code is the code of another character. This happens with the arrow, whose code is `\->`. After typing `\-` we see…
+Мы можем продолжить с кодами для других символов. Иногда символы будут изменяться по мере их набора, потому что префикс кода нашего символа является кодом другого символа. Это происходит со стрелкой, код которой `\->`. После набора `\-` мы видим…
 
 ```agda
-{- I am excited to type ∀ and -
+{- Я в восторге от возможности печатать ∀ и -
 ```
 
-…because the code `\-` corresponds to a hyphen of a certain width. When we add the `>`, the `-` becomes `→`! The code for `≤` is `\<=`, and the code for `≡` is `\==`.
+...потому что код `\-` соответствует дефису определённой ширины. Когда мы добавляем `>`, `-` превращается в `→`! Код для `≤` это `\<=`, а код для `≡` это `\==`.
 
 ```agda
-{- I am excited to type ∀ and → and ≤ and ≡
+{- Я в восторге от возможности печатать ∀ и → и ≤ и ≡
 ```
 
-Finally the last few characters are ordinary again…
+Наконец, последние несколько символов снова становятся обычными...
 
 ```agda
-{- I am excited to type ∀ and → and ≤ and ≡ !! -}
+{- Я в восторге от возможности печатать ∀ и → и ≤ и ≡ !! -}
 ```
 
-If you're having trouble typing the Unicode characters into Emacs, the end of each chapter should provide a list of the Unicode characters introduced in that chapter.
+Если у вас возникают проблемы с вводом символов Unicode в Emacs, в конце каждой главы должен быть предоставлен список символов Unicode, введённых в этой главе.
 
-Emacs with `agda-mode` offers a number of useful commands, and two of them are especially useful when it comes to working with Unicode characters. For a full list of supported characters, use `agda-input-show-translations` with:
+Emacs с `agda-mode` предлагает множество полезных команд, и две из них особенно полезны при работе с символами Unicode. Для полного списка поддерживаемых символов используйте `agda-input-show-translations` с:
 
     M-x agda-input-show-translations
 
-All the supported characters in `agda-mode` are shown.
+Показаны все поддерживаемые символы в `agda-mode`.
 
-If you want to know how you input a specific Unicode character in agda file, move the cursor onto the character and type the following command:
+Если вы хотите узнать, как ввести определённый символ Unicode в файле agda, переместите курсор на символ и введите следующую команду:
 
     M-x quail-show-key
 
-You'll see the key sequence of the character in mini buffer.
+Вы увидите последовательность клавиш символа в мини-буфере.
 
 ### Spacemacs
 
-[Spacemacs][spacemacs] is a “community-driven Emacs distribution” with native support for both Emacs and Vim editing styles. It comes with [integration for `agda-mode`][spacemacs-agda] out of the box. All that is required is that you enable the Agda layer in your `.spacemacs` file.
+[Spacemacs][spacemacs] — это "распространение Emacs, управляемое сообществом", с родной поддержкой стилей редактирования как Emacs, так и Vim. Он поставляется с [интеграцией для agda-mode][spacemacs-agda] "из коробки". Всё, что требуется, — это включить слой Agda в вашем файле `.spacemacs`.
 
 ### Visual Studio Code
 
-[Visual Studio Code][vscode] is a free source code editor developed by Microsoft. There is [a plugin for Agda support][vscode-agda] available on the Visual Studio Marketplace.
+[Visual Studio Code][vscode] — это бесплатный редактор исходного кода, разработанный Microsoft. В магазине Visual Studio Marketplace доступен [плагин для поддержки Agda][vscode-agda].
 
-## Getting Started for Contributors
+## С чего начать Контрибьютерам
 
-If you plan to build PLFA locally, please refer to [Contributing][plfa-contributing] for additional instructions.
+Если вы собираетесь собирать PLFA локально, обратитесь к [Contributing][plfa-contributing] за дополнительными инструкциями.
 
 <!-- Links -->
 
