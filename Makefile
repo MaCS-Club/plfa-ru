@@ -1,5 +1,5 @@
 ABS_DIR := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
-OUT_DIR := _site
+OUT_DIR := docs
 TMP_DIR := _cache
 
 .PHONY: default
