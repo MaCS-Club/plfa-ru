@@ -54,7 +54,7 @@ import System.Exit (ExitCode (..), exitWith)
 import Text.Printf (printf)
 
 outDir, tmpDir :: FilePath
-outDir = "_site"
+outDir = "docs"
 tmpDir = "_cache"
 
 dataDir, authorDir, contributorDir, bibliographyFile, tableOfContentsFile :: FilePath
@@ -606,7 +606,7 @@ postLibrary =
 isPostSource :: FilePath -> Bool
 isPostSource src = isRight $ parsePostSource (makeRelative webPostDir src)
 
--- match _site/YYYY/MM/DD/<slug>/index.html
+-- match docs/YYYY/MM/DD/<slug>/index.html
 isPostOutput :: FilePath -> Bool
 isPostOutput out = isRight $ parsePostOutput (makeRelative outDir out)
 

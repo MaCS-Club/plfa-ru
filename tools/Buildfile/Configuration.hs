@@ -8,7 +8,7 @@ githubOwner = "plfa"
 githubRepo = "plfa.github.io"
 
 outDir, tmpDir :: FilePath
-outDir = "_site"
+outDir = "docs"
 tmpDir = "_cache"
 
 dataDir, authorDir, contributorDir, bibliographyFile, tableOfContentsFile :: FilePath
